@@ -1,5 +1,5 @@
 /**
- * Press Studio — user panel helpers
+ * Hello Probash Studio — user panel helpers
  * - Sidebar drawer on phones ([data-acc-drawer-open] / [data-acc-drawer-close])
  * - "Show all" toggle for long lists ([data-acc-more])
  * - Template search + filter chips ([data-tpl-search], [data-tpl-filter])
