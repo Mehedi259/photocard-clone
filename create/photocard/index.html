@@ -1191,7 +1191,10 @@
             loadUserProfile();
 
             const params = new URLSearchParams(window.location.search);
-            const tid = params.get('id') || '2823';
+            const pathParts = window.location.pathname.split('/').filter(Boolean);
+            const lastPart = pathParts[pathParts.length - 1];
+            const idFromPath = (/^\d+$/.test(lastPart)) ? lastPart : null;
+            const tid = params.get('id') || idFromPath || '2823';
             
             renderTemplateGrid();
             loadTemplate(tid);

@@ -17,10 +17,8 @@
     { "source": "/account/news-rewrite", "destination": "/account/news-rewrite.html" },
     { "source": "/account/video-editor", "destination": "/account/video-editor.html" },
     { "source": "/account/voice-over", "destination": "/account/voice-over.html" },
-    { "source": "/create/photocard/:id", "destination": "/create/photocard.html?id=:id" },
-    { "source": "/create/photocard/(.*)", "destination": "/create/photocard.html?id=$1" },
-    { "source": "/create/photocard", "destination": "/create/photocard.html" },
-    { "source": "/create/thumbnail/(.*)", "destination": "/create/photocard.html?type=thumbnail&id=$1" },
-    { "source": "/create/opinion/(.*)", "destination": "/create/photocard.html?type=opinion&id=$1" }
+    { "source": "/create/photocard/:id", "destination": "/create/photocard?id=:id" },
+    { "source": "/create/thumbnail/:id", "destination": "/create/photocard?type=thumbnail&id=:id" },
+    { "source": "/create/opinion/:id", "destination": "/create/photocard?type=opinion&id=:id" }
   ]
 }
