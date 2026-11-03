@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>প্রেস স্টুডিও - ফটোকার্ড · V 3.1</title>
+    
+    <link href="/assets/img/favicon.png" rel="icon">
+    <meta name="theme-color" content="#00194c">
+
+    <!-- CSS Dependencies -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+    <link rel="stylesheet" href="/assets/css/techtaranga-studio.css">
+    <link rel="stylesheet" href="/assets/css/studio-shell.css">
+
+    <!-- Google Bengali Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Serif+Bengali:wght@400;600;700;800;900&family=Tiro+Bangla&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Logo Toolbar Styles -->
+    <style>
+        .tt-logo-customizer-toolbar {
+            position: fixed;
+            bottom: -500px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            max-width: 800px;
+            background: rgba(15, 23, 42, 0.94);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-top: 4px solid #fb5518;
+            border-radius: 16px 16px 0 0;
+            font-family: 'Hind Siliguri', 'Segoe UI', Roboto, sans-serif;
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .tt-logo-customizer-toolbar.open {
+            bottom: 0;
+        }
+        .tt-logo-toolbar-header {
+            background: rgba(11, 48, 73, 0.8);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 12px 12px 0 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .tt-logo-toolbar-title {
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tt-logo-toolbar-close {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 20px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
+        }
+        .tt-logo-toolbar-close:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .tt-logo-toolbar-body {
+            padding: 18px 20px 22px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        .tt-logo-control-group {
+            margin-bottom: 16px;
+        }
+        .tt-logo-control-label {
+            display: flex;
+            justify-content: space-between;
+            color: #e2e8f0;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+        .tt-logo-range {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #334155;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        .tt-logo-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #fb5518;
+            cursor: pointer;
+            box-shadow: 0 0 8px rgba(251, 85, 24, 0.5);
+            transition: transform 0.1s;
+        }
+        .tt-logo-range::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+        .tt-logo-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .tt-logo-btn {
+            flex: 1;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .tt-logo-btn-reset {
+            background: #334155;
+            color: #cbd5e1;
+        }
+        .tt-logo-btn-reset:hover {
+            background: #475569;
+            color: #fff;
+        }
+        .tt-logo-btn-code {
+            background: rgba(251, 85, 24, 0.15);
+            color: #fb5518;
+            border: 1px solid rgba(251, 85, 24, 0.3);
+        }
+        .tt-logo-btn-code:hover {
+            background: rgba(251, 85, 24, 0.25);
+        }
+        .tt-logo-btn-save {
+            background: #fb5518;
+            color: #fff;
+        }
+        .tt-logo-btn-save:hover {
+            background: #e0440b;
+        }
+        #logoCssOutputContainer {
+            margin-top: 15px;
+            display: none;
+        }
+        #logoCssOutput {
+            width: 100%;
+            height: 70px;
+            background: #0f172a;
+            color: #38bdf8;
+            font-family: monospace;
+            font-size: 11px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 8px;
+            resize: none;
+        }
+
+        /* Template Switcher Grid inside Tab */
+        .techtaranga_photocard_all {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 12px;
+            max-height: 480px;
+            overflow-y: auto;
+            padding: 10px 4px;
+        }
+        .pc_template_item {
+            display: block;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+        }
+        .pc_template_item:hover {
+            border-color: #fb5518;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .pc_template_item.active {
+            border-color: #fb5518;
+            background: rgba(251, 85, 24, 0.15);
+            box-shadow: 0 0 12px rgba(251, 85, 24, 0.4);
+        }
+        .pc_template_item.active::after {
+            content: "✓ সক্রিয়";
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background: #fb5518;
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+        .pc_template_thumb {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            display: block;
+        }
+        .pc_template_title {
+            padding: 6px 4px;
+            font-size: 11px;
+            color: #cbd5e1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Title Highlights Clicker */
+        .title-words-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+        }
+        .word-chip {
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        .word-chip:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .word-chip.highlighted {
+            background: #f7ff00;
+            color: #000;
+            font-weight: 700;
+            box-shadow: 0 0 8px rgba(247, 255, 0, 0.5);
+        }
+
+        /* Photocard title click-to-highlight styling */
+        #TechtarangaPcTitle span {
+            cursor: pointer;
+            transition: color 0.15s ease;
+        }
+        #TechtarangaPcTitle span.highlight {
+            color: #f7ff00 !important;
+        }
+    </style>
+
+    <style>
+        #techtarangaPhotocard {
+            width: 360px !important;
+            height: 360px !important;
+            position: relative !important;
+            overflow: hidden !important;
+            background: #111;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .techtaranga-photocard-bg {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 360px !important;
+            height: 360px !important;
+            z-index: 1 !important;
+        }
+        .techtaranga-photocard-bg img#TechtarangaPcBG {
+            width: 360px !important;
+            height: 360px !important;
+            object-fit: fill !important;
+            display: block !important;
+        }
+        .techtaranga-photocard-content {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 360px !important;
+            height: 360px !important;
+            z-index: 2 !important;
+        }
+</style>
+    <!-- Dynamic Injected Template CSS -->
+    <style id="currentTemplateStyle"></style>
+    <style id="dynamicHighlightColor"></style>
+    <style id="userCustomLogoStyle"></style>
+</head>
+
+<body class="ss-studio">
+    <div class="ss-app" id="studioShell">
+        <!-- App Bar -->
+        <header class="ss-appbar">
+            <a href="/account/template/photocard.html" class="ss-icon-btn" aria-label="পেছনে যান"><i class="bi bi-chevron-left"></i></a>
+            <div class="ss-title">
+                <strong>প্রেস স্টুডিও</strong>
+                <small id="currentTemplateLabel">ফটোকার্ড · V 3.1</small>
+            </div>
+            
+            <button type="button" onclick="toggleLogoToolbar()" class="ss-icon-btn" title="লোগো সেটিং" aria-label="লোগো সেটিং"><i class="bi bi-gear-fill"></i></button>
+            <button type="button" onclick="captureAndDownload()" class="ss-download-btn" id="dw_bt">
+                <i class="bi bi-download"></i> <span>ডাউনলোড</span>
+            </button>
+        </header>
+
+        <main class="ss-main">
+            <!-- Canvas Stage -->
+            <section class="ss-stage">
+                <div class="ss-canvas-frame">
+                    <div class="ss-canvas-scaler">
+                        <div id="techtarangaPhotocard" class="m-auto techtaranga-photo-card">
+                            <div class="techtaranga-photocard-bg">
+                                <img id="TechtarangaPcBG" class="w-100" src="https://pressstudio.com.bd/uploads/1793524743_6ae70407e2583.png" alt="Background" > 
+                                <img src="" style="display:none" class="w-100" id="techtaranga_pc_ad_img" alt="Ad Banner">
+                            </div>
+
+                            <div class="techtaranga-photocard-content">
+                                <img id="TechtarangaPcLogo" src="/assets/img/default-logo.png" alt="Logo" >
+                                <img id="TechtarangaPcPhoto" src="/assets/img/placeholder-image.png" alt="Featured Image" > 
+                                <div class="techtaranga-meta">
+                                    <span id="TechtarangaPcDate">৩ নভেম্বর, ২০২৬</span>
+                                </div>
+                                <div id="TechtarangaCmnt">&gt;&gt; বিস্তারিত কমেন্টে &lt;&lt;</div>
+                                <h1 id="TechtarangaPcTitle">যুক্তরাষ্ট্রের নতুন প্রেসিডেন্ট হিসেবে শপথ নিলেন ডোনাল্ড ট্রাম্প</h1>
+                                <div id="TechtarangaPcDesc" style="display:none"></div>
+                                
+                                <div id="background-tech">   
+                                    <div id="TechtarangaPcWeb"><i class="bi bi-globe"></i> WWW.HELLOPROBASH.COM</div>
+                                </div> 
+                                <div id="TECHTARANGA-FB"><i class="bi bi-facebook text-primary"></i> Hello Probash</div>
+                                <div id="TECHTARANGA-YOUTUBE"><i class="bi bi-youtube"></i> Hello Probash</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tools Panel / Bottom Sheet -->
+            <aside class="ss-panel">
+                <button type="button" class="ss-sheet-handle" aria-label="টুলস বন্ধ করুন" aria-expanded="true"></button>
+                <div class="font-control">
+                    <!-- Tabs Navigation -->
+                    <div class="pc-studio-tabs-nav">
+                        <div class="pc-tab-link active" data-ss-icon="bi-pencil-square" onclick="switchStudioTab(this, 'tab-contents')">লেখা ও ছবি</div>
+                        <div class="pc-tab-link" data-ss-icon="bi-grid-1x2" onclick="switchStudioTab(this, 'tab-templates')">টেমপ্লেট (২০৮)</div>
+                        <div class="pc-tab-link" data-ss-icon="bi-palette" onclick="switchStudioTab(this, 'tab-style')">স্টাইল</div>
+                        <div class="pc-tab-link" data-ss-icon="bi-megaphone" data-ss-label="বিজ্ঞাপন" onclick="switchStudioTab(this, 'tab-advertisement')">বিজ্ঞাপন</div>
+                    </div>
+                    
+                    <!-- Tabs Content -->
+                    <div class="pc-tabs-content">
+
+                        <!-- Tab 1: Contents & Photo -->
+                        <div class="pc-tab-pane active" id="tab-contents">
+                            <!-- News Link Fetcher -->
+                            <div class="mb-3">
+                                <label class="control-label-white">নিউজ লিংক থেকে তথ্য আনুন</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="pcLinkInput" placeholder="যেকোনো নিউজের লিংক দিন...">
+                                    <button class="btn btn-primary" type="button" id="fetchData">
+                                        তথ্য দেখুন
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="previewResult" class="mt-2"></div>
+
+                            <!-- Featured Photo Upload -->
+                            <div class="mb-3">
+                                <label class="control-label-white d-flex justify-content-between align-items-center">
+                                    <span>মূল ছবি পরিবর্তন করুন</span>
+                                    <small class="text-white-50">ক্লিক করে ছবি আপলোড করুন</small>
+                                </label>
+                                <div class="pc-photo-upload-container w-100" style="height:90px; min-height:90px; cursor:pointer;">
+                                    <label for="pcPhotoUpload" style="cursor:pointer; display:flex; width:100%; height:100%; align-items:center; justify-content:center; gap:8px;">
+                                        <i class="bi bi-camera fs-3"></i> <span>ছবি আপলোড ও ক্রপ করুন</span>
+                                    </label>
+                                    <input type="file" id="pcPhotoUpload" accept="image/*" style="display:none;">
+                                </div>
+                            </div>
+
+                            <!-- Title Input -->
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="control-label-white mb-0">সংবাদের শিরোনাম</label>
+                                    <small class="text-warning" style="font-size:11px;">(নিচে যে শব্দে ক্লিক করবেন সেটি হলুদ হাইলাইট হবে)</small>
+                                </div>
+                                <textarea class="form-control" id="pcTitleInput" rows="2" placeholder="সংবাদের শিরোনাম লিখুন...">যুক্তরাষ্ট্রের নতুন প্রেসিডেন্ট হিসেবে শপথ নিলেন ডোনাল্ড ট্রাম্প</textarea>
+                                
+                                <!-- Word Clicker Highlight Chips -->
+                                <div class="title-words-container" id="titleWordsContainer"></div>
+                            </div>
+
+                            <!-- Subheading / Excerpt (Optional) -->
+                            <div class="mb-3 techtarangaDescriptionCtrl" id="descControlGroup">
+                                <label class="control-label-white">সাব-হেড / বিবরণ <small class="text-white-50">(কিছু টেমপ্লেটে প্রযোজ্য)</small></label>
+                                <textarea class="form-control" id="pcDescInput" rows="2" placeholder="সাব-হেডিং বা সংক্ষিপ্ত বিবরণ..."></textarea>
+                            </div>
+
+                            <!-- Date & Comment Notice Controls -->
+                            <div class="row g-2 mb-3">
+                                <div class="col-6">
+                                    <label class="control-label-white">তারিখ</label>
+                                    <input type="text" class="form-control" id="pcDateInput" value="৩ নভেম্বর, ২০২৬">
+                                </div>
+                                <div class="col-6">
+                                    <label class="control-label-white">মন্তব্য নোটিশ</label>
+                                    <input type="text" class="form-control" id="pcCmntInput" value=">> বিস্তারিত কমেন্টে <<">
+                                </div>
+                            </div>
+
+                            <!-- Brand Handles Live Quick Edit -->
+                            <div class="row g-2 mb-3">
+                                <div class="col-4">
+                                    <label class="control-label-white" style="font-size:11px;">ওয়েবসাইট</label>
+                                    <input type="text" class="form-control form-control-sm" id="pcWebInput" value="WWW.HELLOPROBASH.COM">
+                                </div>
+                                <div class="col-4">
+                                    <label class="control-label-white" style="font-size:11px;">ফেসবুক</label>
+                                    <input type="text" class="form-control form-control-sm" id="pcFbInput" value="Hello Probash">
+                                </div>
+                                <div class="col-4">
+                                    <label class="control-label-white" style="font-size:11px;">ইউটিউব</label>
+                                    <input type="text" class="form-control form-control-sm" id="pcYtInput" value="Hello Probash">
+                                </div>
+                            </div>
+                        </div><!-- /#tab-contents -->
+
+                        <!-- Tab 2: Templates List (208 templates) -->
+                        <div class="pc-tab-pane" id="tab-templates">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="tab-section-title mb-0">টেমপ্লেট বেছে নিন (২০৮টি)</span>
+                                <input type="text" class="form-control form-control-sm w-50" id="studioTplSearch" placeholder="নম্বর বা নাম দিয়ে খুঁজুন...">
+                            </div>
+                            <div class="techtaranga_photocard_all" id="studioTplGrid">
+                                <!-- Populated dynamically by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Tab 3: Style -->
+                        <div class="pc-tab-pane" id="tab-style">
+                            <!-- Font Family -->
+                            <div class="mb-3">
+                                <label class="control-label-white">বাংলা ফন্ট</label>
+                                <select class="form-select" id="fontFamilySelector">
+                                    <option value="'Noto Serif Bengali', serif">Noto Serif Bengali (সেরিফ - সবচেয়ে জনপ্রিয়)</option>
+                                    <option value="'Hind Siliguri', sans-serif">Hind Siliguri (আধুনিক সান্স-সেরিফ)</option>
+                                    <option value="'Anek Bangla', sans-serif">Anek Bangla (বোল্ড হেডলাইন)</option>
+                                    <option value="'Tiro Bangla', serif">Tiro Bangla (ক্ল্যাসিক সংবাদপত্র ফন্ট)</option>
+                                    <option value="'Kalpurush', sans-serif">Kalpurush (কালপুরুষ)</option>
+                                    <option value="'SolaimanLipi', sans-serif">SolaimanLipi (সোলাইমান লিপি)</option>
+                                </select>
+                            </div>
+
+                            <!-- Font Size & Line Height -->
+                            <div class="row g-2 mb-3">
+                                <div class="col-6">
+                                    <label class="control-label-white d-flex justify-content-between">
+                                        <span>ফন্ট সাইজ</span>
+                                        <span id="fontSizeDisplay">22px</span>
+                                    </label>
+                                    <input type="range" class="form-range" id="TechtarangaAdjstFontSize" min="14" max="36" value="22">
+                                </div>
+                                <div class="col-6">
+                                    <label class="control-label-white d-flex justify-content-between">
+                                        <span>লাইন স্পেস</span>
+                                        <span id="lineHeightDisplay">36px</span>
+                                    </label>
+                                    <input type="range" class="form-range" id="TechtarangaAdjstLineHeight" min="20" max="55" value="36">
+                                </div>
+                            </div>
+
+                            <!-- Colors -->
+                            <div class="row g-2 mb-3">
+                                <div class="col-6">
+                                    <label class="control-label-white">শিরোনামের মূল রং</label>
+                                    <input type="color" class="form-control form-control-color w-100" id="pcTitleColorPicker" value="#ffffff">
+                                </div>
+                                <div class="col-6">
+                                    <label class="control-label-white">হাইলাইট শব্দের রং</label>
+                                    <input type="color" class="form-control form-control-color w-100" id="pcHighlightColorPicker" value="#f7ff00">
+                                </div>
+                            </div>
+
+                            <!-- Text Alignment -->
+                            <div class="mb-3">
+                                <label class="control-label-white">শিরোনাম এলাইনমেন্ট</label>
+                                <div class="btn-group w-100" role="group">
+                                    <button type="button" class="btn btn-outline-light btn-sm" onclick="setPcTextAlign('left')"><i class="bi bi-text-left"></i> বামে</button>
+                                    <button type="button" class="btn btn-outline-light btn-sm active" onclick="setPcTextAlign('center')"><i class="bi bi-text-center"></i> মাঝে</button>
+                                    <button type="button" class="btn btn-outline-light btn-sm" onclick="setPcTextAlign('right')"><i class="bi bi-text-right"></i> ডানে</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 4: Advertisement -->
+                        <div class="pc-tab-pane" id="tab-advertisement">
+                            <span class="tab-section-title">বিজ্ঞাপন ব্যানার</span>
+                            <p class="text-white-50 small mb-3">কার্ডের নিচে স্পন্সর বা বিজ্ঞাপন ব্যানার যোগ করতে ছবি নির্বাচন করুন।</p>
+                            
+                            <div class="mb-3">
+                                <label for="customAdFileInput" class="btn btn-outline-warning w-100 py-2">
+                                    <i class="bi bi-upload me-2"></i> বিজ্ঞাপন ব্যানার আপলোড করুন
+                                </label>
+                                <input type="file" id="customAdFileInput" accept="image/*" style="display:none;">
+                            </div>
+
+                            <button type="button" class="btn btn-outline-danger w-100 btn-sm" id="removeAdBtn">
+                                <i class="bi bi-trash3 me-1"></i> বিজ্ঞাপন বাদ দিন
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Export Loading Overlay -->
+        <div class="ss-export-overlay" role="status" aria-live="polite">
+            <div class="ss-spinner"></div>
+            <div id="exportStatusText">এইচডি ফটোকার্ড তৈরি হচ্ছে...</div>
+        </div>
+    </div>
+
+    <!-- Cropper Modal -->
+    <div class="modal fade" id="cropperModal" tabindex="-1" aria-labelledby="cropperModalLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
+            <div class="modal-content shadow-lg" style="background:#0b3049; color:#fff; border: 1px solid rgba(255,255,255,0.1); border-radius: 24px;">
+                <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding: 18px 24px;">
+                    <h5 class="modal-title fw-bold text-white" id="cropperModalLabel"><i class="bi bi-crop text-warning me-2"></i>ছবি ক্রপ ও পজিশন ঠিক করুন</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="বন্ধ করুন"></button>
+                </div>
+                <div class="modal-body" style="padding: 20px;">
+                    <div class="img-container" style="max-height: 480px; display:flex; justify-content:center; align-items:center; background-color:#07263b; border-radius: 12px; overflow:hidden;">
+                        <img id="imageToCrop" src="" alt="Picture" style="max-width: 100%; display:block;">
+                    </div>
+                    <div class="d-flex justify-content-center gap-2 mt-3">
+                        <button type="button" class="btn btn-sm btn-outline-light" onclick="if(cropper) cropper.rotate(-90)"><i class="bi bi-arrow-counterclockwise"></i> বামে ঘোরান</button>
+                        <button type="button" class="btn btn-sm btn-outline-light" onclick="if(cropper) cropper.rotate(90)"><i class="bi bi-arrow-clockwise"></i> ডানে ঘোরান</button>
+                        <button type="button" class="btn btn-sm btn-outline-light" onclick="if(cropper) cropper.reset()"><i class="bi bi-arrow-repeat"></i> রিসেট</button>
+                    </div>
+                </div>
+                <div class="modal-footer" style="border-top: 1px solid rgba(255,255,255,0.05); padding: 16px 24px;">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">বাতিল</button>
+                    <button type="button" class="btn btn-primary rounded-pill px-4 fw-bold" id="cropImageBtn" style="background: linear-gradient(135deg, #fb5518, #ff8c00); border:none;">ক্রপ প্রয়োগ করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- News Fetch Modal -->
+    <div class="modal fade text-start" id="fetchedDataModal" tabindex="-1" aria-labelledby="fetchedDataModalLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
+            <div class="modal-content shadow-lg border-secondary" style="background:#0b3049; color:#fff;">
+                <div class="modal-header border-secondary p-4">
+                    <h5 class="modal-title fw-bold text-white" id="fetchedDataModalLabel"><i class="bi bi-file-earmark-arrow-down text-info me-2"></i>নিউজের তথ্য ও ছবি</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="বন্ধ করুন"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="mb-3">
+                        <label class="form-label text-white-50">শিরোনাম</label>
+                        <input type="text" class="form-control" id="modalTitleInput">
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <label class="form-label text-white-50">ক্যাটাগরি</label>
+                            <input type="text" class="form-control" id="modalCategoryInput">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label text-white-50">তারিখ</label>
+                            <input type="text" class="form-control" id="modalDateInput">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-white-50">নিউজ ছবি</label>
+                        <div style="max-height: 260px; overflow:hidden; border-radius:10px; background:#07263b; display:flex; align-items:center; justify-content:center;">
+                            <img id="previewModalImage" src="" alt="News Image" style="max-width:100%; max-height:260px; object-fit:contain;">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary p-3">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">বাতিল</button>
+                    <button type="button" class="btn btn-primary rounded-pill px-4 fw-bold" id="btnCreatePhotocard" style="background: linear-gradient(135deg, #fb5518, #ff8c00); border:none;">কার্ডে ব্যবহার করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Logo Customizer Toolbar -->
+    <div id="ttLogoCustomizerToolbar" class="tt-logo-customizer-toolbar">
+        <div class="tt-logo-toolbar-header">
+            <span class="tt-logo-toolbar-title"><i class="bi bi-sliders text-warning"></i> লোগো অ্যাডজাস্টমেন্ট ও পজিশনিং</span>
+            <button type="button" class="tt-logo-toolbar-close" onclick="toggleLogoToolbar()"><i class="bi bi-x"></i></button>
+        </div>
+        <div class="tt-logo-toolbar-body">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="tt-logo-control-group">
+                        <div class="tt-logo-control-label">
+                            <span>উচ্চতা / সাইজ (Height)</span>
+                            <span id="logoHeightVal">30px</span>
+                        </div>
+                        <input type="range" class="tt-logo-range" id="logoHeightRange" min="10" max="100" value="30">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="tt-logo-control-group">
+                        <div class="tt-logo-control-label">
+                            <span>স্বচ্ছতা (Opacity)</span>
+                            <span id="logoOpacityVal">100%</span>
+                        </div>
+                        <input type="range" class="tt-logo-range" id="logoOpacityRange" min="10" max="100" value="100">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="tt-logo-control-group">
+                        <div class="tt-logo-control-label">
+                            <span>উপর/নিচ পজিশন (Top)</span>
+                            <span id="logoTopVal">12px</span>
+                        </div>
+                        <input type="range" class="tt-logo-range" id="logoTopRange" min="0" max="350" value="12">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="tt-logo-control-group">
+                        <div class="tt-logo-control-label">
+                            <span>ডানে/বামে পজিশন (Left)</span>
+                            <span id="logoLeftVal">12px</span>
+                        </div>
+                        <input type="range" class="tt-logo-range" id="logoLeftRange" min="0" max="350" value="12">
+                    </div>
+                </div>
+            </div>
+
+            <div class="tt-logo-actions">
+                <button type="button" class="tt-logo-btn tt-logo-btn-reset" onclick="resetLogoCustomizer()"><i class="bi bi-arrow-counterclockwise"></i> রিসেট</button>
+                <button type="button" class="tt-logo-btn tt-logo-btn-code" onclick="toggleCssField()"><i class="bi bi-code-slash"></i> CSS কপি</button>
+                <button type="button" class="tt-logo-btn tt-logo-btn-save" onclick="saveLogoPlacement()"><i class="bi bi-check2"></i> সেভ করুন</button>
+            </div>
+
+            <div id="logoCssOutputContainer">
+                <textarea id="logoCssOutput" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="/assets/js/html2canvas.min.js"></script>
+    <script src="/assets/js/studio-export.js"></script>
+    <script src="/assets/js/studio-shell.js"></script>
+    <script src="/data/photocards.js"></script>
+
+    <script>
+        // Global State
+        let currentTemplateId = '2823';
+        let currentTemplate = null;
+        let cropper = null;
+        let targetAspectRatio = 330 / 184;
+        let highlightedWordsIndices = new Set([6, 7, 8]); // Default highlight last words
+
+        // Tab Switcher
+        function switchStudioTab(el, tabId) {
+            document.querySelectorAll('.pc-tab-link').forEach(link => link.classList.remove('active'));
+            el.classList.add('active');
+            document.querySelectorAll('.pc-tab-pane').forEach(pane => pane.classList.remove('active'));
+            const target = document.getElementById(tabId);
+            if (target) target.classList.add('active');
+        }
+
+        // Initialize user profile from localStorage
+        function loadUserProfile() {
+            let user = null;
+            try { user = JSON.parse(localStorage.getItem('ps_user')); } catch(e){}
+            if (!user) {
+                user = {
+                    name: 'Prokash Tv',
+                    brand_name: 'Hello Probash',
+                    email: 'helloprobash@gmail.com',
+                    website: 'WWW.HELLOPROBASH.COM',
+                    fb: 'Hello Probash',
+                    youtube: 'Hello Probash',
+                    logo: '/assets/img/default-logo.png'
+                };
+            }
+
+            const logoEl = document.getElementById('TechtarangaPcLogo');
+            if (logoEl && user.logo) logoEl.src = user.logo;
+
+            const webEl = document.getElementById('TechtarangaPcWeb');
+            const webInput = document.getElementById('pcWebInput');
+            if (webEl && user.website) {
+                webEl.innerHTML = `<i class="bi bi-globe"></i> ${user.website}`;
+                if (webInput) webInput.value = user.website;
+            }
+
+            const fbEl = document.getElementById('TECHTARANGA-FB');
+            const fbInput = document.getElementById('pcFbInput');
+            if (fbEl && user.fb) {
+                fbEl.innerHTML = `<i class="bi bi-facebook text-primary"></i> ${user.fb}`;
+                if (fbInput) fbInput.value = user.fb;
+            }
+
+            const ytEl = document.getElementById('TECHTARANGA-YOUTUBE');
+            const ytInput = document.getElementById('pcYtInput');
+            if (ytEl && user.youtube) {
+                ytEl.innerHTML = `<i class="bi bi-youtube"></i> ${user.youtube}`;
+                if (ytInput) ytInput.value = user.youtube;
+            }
+        }
+
+        // Load & Switch Template
+        function loadTemplate(tid) {
+            if (!window.PS_PHOTOCARDS || !window.PS_PHOTOCARDS.length) return;
+            const tpl = window.PS_PHOTOCARDS.find(t => t.id === String(tid)) || window.PS_PHOTOCARDS[0];
+            currentTemplateId = tpl.id;
+            currentTemplate = tpl;
+
+            // Update Label
+            document.getElementById('currentTemplateLabel').textContent = `টেমপ্লেট ${tpl.id} · ${tpl.title}`;
+
+            // Update Background
+            const bgEl = document.getElementById('TechtarangaPcBG');
+            if (bgEl && tpl.bg) bgEl.src = tpl.bg;
+
+            // Inject Custom CSS
+            const styleTag = document.getElementById('currentTemplateStyle');
+            if (styleTag && tpl.css) {
+                styleTag.innerHTML = tpl.css;
+            }
+
+            // Update active state in template list
+            document.querySelectorAll('.pc_template_item').forEach(item => {
+                item.classList.toggle('active', item.getAttribute('data-id') === tpl.id);
+            });
+
+            // Update description block visibility
+            const descGroup = document.getElementById('descControlGroup');
+            const hasDescInCss = tpl.css && tpl.css.includes('TechtarangaPcDesc');
+            if (descGroup) descGroup.style.display = hasDescInCss ? 'block' : 'none';
+            const descEl = document.getElementById('TechtarangaPcDesc');
+            if (descEl) descEl.style.display = hasDescInCss ? 'block' : 'none';
+
+            // Refresh Title Highlights
+            refreshTitleSplitting();
+
+            // Calculate target aspect ratio from CSS
+            const photoEl = document.getElementById('TechtarangaPcPhoto');
+            if (photoEl) {
+                const w = parseFloat(window.getComputedStyle(photoEl).width) || 330;
+                const h = parseFloat(window.getComputedStyle(photoEl).height) || 184;
+                if (h > 0) targetAspectRatio = w / h;
+            }
+        }
+
+        // Populate Template Switcher Grid
+        function renderTemplateGrid() {
+            const grid = document.getElementById('studioTplGrid');
+            if (!grid || !window.PS_PHOTOCARDS) return;
+
+            grid.innerHTML = window.PS_PHOTOCARDS.map(tpl => `
+                <div class="pc_template_item ${tpl.id === currentTemplateId ? 'active' : ''}" data-id="${tpl.id}" data-title="${tpl.title.toLowerCase()}" onclick="selectTemplate('${tpl.id}')">
+                    <img src="${tpl.thumb}" class="pc_template_thumb" alt="${tpl.title}" loading="lazy" >
+                    <div class="pc_template_title">${tpl.title} (${tpl.id})</div>
+                </div>
+            `).join('');
+
+            // Search filter
+            const searchInput = document.getElementById('studioTplSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const q = this.value.toLowerCase().trim();
+                    document.querySelectorAll('.pc_template_item').forEach(item => {
+                        const title = item.getAttribute('data-title') || '';
+                        const id = item.getAttribute('data-id') || '';
+                        if (!q || title.includes(q) || id.includes(q)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            }
+        }
+
+        function selectTemplate(tid) {
+            loadTemplate(tid);
+            try {
+                history.pushState(null, '', `?id=${tid}`);
+            } catch(e){}
+        }
+
+        // Title and Highlights Engine
+        function refreshTitleSplitting() {
+            const heading = document.getElementById('TechtarangaPcTitle');
+            const input = document.getElementById('pcTitleInput');
+            const chipsContainer = document.getElementById('titleWordsContainer');
+            if (!heading || !input) return;
+
+            const text = input.value.trim();
+            const words = text ? text.split(/\s+/) : [];
+
+            // Render heading HTML with highlighted spans
+            heading.innerHTML = words.map((w, idx) => {
+                const isHigh = highlightedWordsIndices.has(idx);
+                return `<span class="${isHigh ? 'highlight' : ''}" data-word-idx="${idx}">${w}</span>`;
+            }).join(' ');
+
+            // Click listener directly on heading words
+            heading.querySelectorAll('span').forEach(span => {
+                span.addEventListener('click', function(e) {
+                    const idx = parseInt(this.getAttribute('data-word-idx'));
+                    if (highlightedWordsIndices.has(idx)) {
+                        highlightedWordsIndices.delete(idx);
+                        this.classList.remove('highlight');
+                    } else {
+                        highlightedWordsIndices.add(idx);
+                        this.classList.add('highlight');
+                    }
+                    renderWordChips(words);
+                });
+            });
+
+            renderWordChips(words);
+        }
+
+        function renderWordChips(words) {
+            const container = document.getElementById('titleWordsContainer');
+            if (!container) return;
+            container.innerHTML = words.map((w, idx) => {
+                const isHigh = highlightedWordsIndices.has(idx);
+                return `<span class="word-chip ${isHigh ? 'highlighted' : ''}" onclick="toggleWordHighlight(${idx})">${w}</span>`;
+            }).join('');
+        }
+
+        function toggleWordHighlight(idx) {
+            if (highlightedWordsIndices.has(idx)) {
+                highlightedWordsIndices.delete(idx);
+            } else {
+                highlightedWordsIndices.add(idx);
+            }
+            refreshTitleSplitting();
+        }
+
+        // Cropper Logic
+        const cropperModalEl = document.getElementById('cropperModal');
+        let cropperModalInstance = null;
+
+        document.getElementById('pcPhotoUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                const img = document.getElementById('imageToCrop');
+                img.src = evt.target.result;
+                if (!cropperModalInstance) {
+                    cropperModalInstance = new bootstrap.Modal(cropperModalEl);
+                }
+                cropperModalInstance.show();
+            };
+            reader.readAsDataURL(file);
+            e.target.value = '';
+        });
+
+        cropperModalEl.addEventListener('shown.bs.modal', function() {
+            if (cropper) cropper.destroy();
+            const img = document.getElementById('imageToCrop');
+            cropper = new Cropper(img, {
+                aspectRatio: targetAspectRatio || (330 / 184),
+                viewMode: 1,
+                autoCropArea: 0.95,
+                dragMode: 'move',
+                responsive: false,
+                restore: false
+            });
+        });
+
+        cropperModalEl.addEventListener('hidden.bs.modal', function() {
+            if (cropper) {
+                cropper.destroy();
+                cropper = null;
+            }
+        });
+
+        document.getElementById('cropImageBtn').addEventListener('click', function() {
+            if (!cropper) return;
+            const canvas = cropper.getCroppedCanvas({
+                imageSmoothingEnabled: true,
+                imageSmoothingQuality: 'high'
+            });
+            if (canvas) {
+                const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
+                document.getElementById('TechtarangaPcPhoto').src = dataUrl;
+            }
+            if (cropperModalInstance) cropperModalInstance.hide();
+        });
+
+        // News Fetcher Logic
+        document.getElementById('fetchData').addEventListener('click', async function() {
+            const url = document.getElementById('pcLinkInput').value.trim();
+            if (!url) {
+                alert('অনুগ্রহ করে নিউজের লিংক দিন');
+                return;
+            }
+
+            const btn = this;
+            const origText = btn.innerHTML;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> তথ্য খোঁজা হচ্ছে...';
+            btn.disabled = true;
+
+            const resDiv = document.getElementById('previewResult');
+            resDiv.innerHTML = '';
+
+            try {
+                // Call serverless fetch API or client fallback
+                let data = null;
+                try {
+                    const resp = await fetch('/api/fetch-news', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ url: url })
+                    });
+                    if (resp.ok) data = await resp.json();
+                } catch(e) {}
+
+                // Fallback to client extraction if API unavailable
+                if (!data || data.status !== 'success') {
+                    // Simulating successful intelligent title extraction or mock preview
+                    const urlObj = new URL(url.startsWith('http') ? url : 'https://' + url);
+                    const pathParts = urlObj.pathname.split('/').filter(Boolean);
+                    const slug = pathParts[pathParts.length - 1] || 'news-title';
+                    const decodedTitle = decodeURIComponent(slug).replace(/[-_]/g, ' ').replace(/\.[a-zA-Z]+$/, '');
+                    
+                    data = {
+                        status: 'success',
+                        title: decodedTitle.length > 5 ? decodedTitle : 'সংবাদের শিরোনাম এখানে প্রদর্শিত হবে',
+                        category: pathParts[0] || 'জাতীয়',
+                        date: new Date().toLocaleDateString('bn-BD', { day: 'numeric', month: 'long', year: 'numeric' }),
+                        image: '/assets/img/placeholder-image.png'
+                    };
+                }
+
+                document.getElementById('modalTitleInput').value = data.title || '';
+                document.getElementById('modalCategoryInput').value = data.category || 'বাংলাদেশ';
+                document.getElementById('modalDateInput').value = data.date || '৩ নভেম্বর, ২০২৬';
+                document.getElementById('previewModalImage').src = data.image || '/assets/img/placeholder-image.png';
+
+                const modal = new bootstrap.Modal(document.getElementById('fetchedDataModal'));
+                modal.show();
+            } catch(err) {
+                resDiv.innerHTML = '<div class="alert alert-warning p-2 small">তথ্য সরাসরি আনতে সমস্যা হয়েছে, লিংকটি ব্রাউজারে চেক করুন।</div>';
+            } finally {
+                btn.innerHTML = origText;
+                btn.disabled = false;
+            }
+        });
+
+        // Apply Fetched Data to Card
+        document.getElementById('btnCreatePhotocard').addEventListener('click', function() {
+            const titleVal = document.getElementById('modalTitleInput').value.trim();
+            const dateVal = document.getElementById('modalDateInput').value.trim();
+            const imgEl = document.getElementById('previewModalImage');
+
+            if (titleVal) {
+                document.getElementById('pcTitleInput').value = titleVal;
+                highlightedWordsIndices.clear();
+                // Highlight last 2-3 words
+                const count = titleVal.split(/\s+/).length;
+                if (count > 2) {
+                    highlightedWordsIndices.add(count - 2);
+                    highlightedWordsIndices.add(count - 1);
+                }
+                refreshTitleSplitting();
+            }
+            if (dateVal) {
+                document.getElementById('pcDateInput').value = dateVal;
+                document.getElementById('TechtarangaPcDate').textContent = dateVal;
+            }
+            if (imgEl && imgEl.src && imgEl.src.indexOf('placeholder') === -1) {
+                document.getElementById('TechtarangaPcPhoto').src = imgEl.src;
+            }
+
+            const m = bootstrap.Modal.getInstance(document.getElementById('fetchedDataModal'));
+            if (m) m.hide();
+        });
+
+        // Font & Alignment Controls
+        document.getElementById('fontFamilySelector').addEventListener('change', function() {
+            document.getElementById('TechtarangaPcTitle').style.fontFamily = this.value;
+        });
+
+        document.getElementById('TechtarangaAdjstFontSize').addEventListener('input', function() {
+            document.getElementById('fontSizeDisplay').textContent = `${this.value}px`;
+            document.getElementById('TechtarangaPcTitle').style.fontSize = `${this.value}px`;
+        });
+
+        document.getElementById('TechtarangaAdjstLineHeight').addEventListener('input', function() {
+            document.getElementById('lineHeightDisplay').textContent = `${this.value}px`;
+            document.getElementById('TechtarangaPcTitle').style.lineHeight = `${this.value}px`;
+        });
+
+        document.getElementById('pcTitleColorPicker').addEventListener('input', function() {
+            document.getElementById('TechtarangaPcTitle').style.color = this.value;
+        });
+
+        document.getElementById('pcHighlightColorPicker').addEventListener('input', function() {
+            let style = document.getElementById('dynamicHighlightColor');
+            if (!style) {
+                style = document.createElement('style');
+                style.id = 'dynamicHighlightColor';
+                document.head.appendChild(style);
+            }
+            style.innerHTML = `#TechtarangaPcTitle .highlight { color: ${this.value} !important; }`;
+        });
+
+        function setPcTextAlign(align) {
+            document.getElementById('TechtarangaPcTitle').style.textAlign = align;
+        }
+
+        // Live Inputs Binding
+        document.getElementById('pcTitleInput').addEventListener('input', refreshTitleSplitting);
+        
+        document.getElementById('pcDateInput').addEventListener('input', function() {
+            document.getElementById('TechtarangaPcDate').textContent = this.value;
+        });
+
+        document.getElementById('pcCmntInput').addEventListener('input', function() {
+            document.getElementById('TechtarangaCmnt').textContent = this.value;
+        });
+
+        document.getElementById('pcDescInput').addEventListener('input', function() {
+            const el = document.getElementById('TechtarangaPcDesc');
+            if (el) el.textContent = this.value;
+        });
+
+        document.getElementById('pcWebInput').addEventListener('input', function() {
+            document.getElementById('TechtarangaPcWeb').innerHTML = `<i class="bi bi-globe"></i> ${this.value}`;
+        });
+
+        document.getElementById('pcFbInput').addEventListener('input', function() {
+            document.getElementById('TECHTARANGA-FB').innerHTML = `<i class="bi bi-facebook text-primary"></i> ${this.value}`;
+        });
+
+        document.getElementById('pcYtInput').addEventListener('input', function() {
+            document.getElementById('TECHTARANGA-YOUTUBE').innerHTML = `<i class="bi bi-youtube"></i> ${this.value}`;
+        });
+
+        // Advertisement Handler
+        document.getElementById('customAdFileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                const adImg = document.getElementById('techtaranga_pc_ad_img');
+                if (adImg) {
+                    adImg.src = evt.target.result;
+                    adImg.style.display = 'block';
+                }
+            };
+            reader.readAsDataURL(file);
+        });
+
+        document.getElementById('removeAdBtn').addEventListener('click', function() {
+            const adImg = document.getElementById('techtaranga_pc_ad_img');
+            if (adImg) {
+                adImg.style.display = 'none';
+                adImg.src = '';
+            }
+            document.getElementById('customAdFileInput').value = '';
+        });
+
+        // Floating Logo Toolbar Controls
+        function toggleLogoToolbar() {
+            const bar = document.getElementById('ttLogoCustomizerToolbar');
+            if (bar) bar.classList.toggle('open');
+        }
+
+        const logoEl = document.getElementById('TechtarangaPcLogo');
+        document.getElementById('logoHeightRange').addEventListener('input', function() {
+            document.getElementById('logoHeightVal').textContent = `${this.value}px`;
+            if (logoEl) logoEl.style.height = `${this.value}px`;
+            updateLogoCssOutput();
+        });
+
+        document.getElementById('logoOpacityRange').addEventListener('input', function() {
+            document.getElementById('logoOpacityVal').textContent = `${this.value}%`;
+            if (logoEl) logoEl.style.opacity = this.value / 100;
+            updateLogoCssOutput();
+        });
+
+        document.getElementById('logoTopRange').addEventListener('input', function() {
+            document.getElementById('logoTopVal').textContent = `${this.value}px`;
+            if (logoEl) {
+                logoEl.style.top = `${this.value}px`;
+                logoEl.style.bottom = 'auto';
+            }
+            updateLogoCssOutput();
+        });
+
+        document.getElementById('logoLeftRange').addEventListener('input', function() {
+            document.getElementById('logoLeftVal').textContent = `${this.value}px`;
+            if (logoEl) {
+                logoEl.style.left = `${this.value}px`;
+                logoEl.style.right = 'auto';
+            }
+            updateLogoCssOutput();
+        });
+
+        function updateLogoCssOutput() {
+            const h = document.getElementById('logoHeightRange').value;
+            const t = document.getElementById('logoTopRange').value;
+            const l = document.getElementById('logoLeftRange').value;
+            const op = document.getElementById('logoOpacityRange').value;
+            const css = `#TechtarangaPcLogo {\n  height: ${h}px;\n  top: ${t}px;\n  left: ${l}px;\n  opacity: ${op / 100};\n}`;
+            document.getElementById('logoCssOutput').value = css;
+        }
+
+        function toggleCssField() {
+            const box = document.getElementById('logoCssOutputContainer');
+            box.style.display = box.style.display === 'block' ? 'none' : 'block';
+            updateLogoCssOutput();
+        }
+
+        function saveLogoPlacement() {
+            const placement = {
+                height: document.getElementById('logoHeightRange').value,
+                top: document.getElementById('logoTopRange').value,
+                left: document.getElementById('logoLeftRange').value,
+                opacity: document.getElementById('logoOpacityRange').value
+            };
+            localStorage.setItem('ps_logo_placement_' + currentTemplateId, JSON.stringify(placement));
+            alert('লোগো পজিশন সফলভাবে সেভ হয়েছে!');
+            toggleLogoToolbar();
+        }
+
+        function resetLogoCustomizer() {
+            if (logoEl) {
+                logoEl.style.height = '';
+                logoEl.style.top = '';
+                logoEl.style.left = '';
+                logoEl.style.opacity = '1';
+            }
+            document.getElementById('logoHeightRange').value = 30;
+            document.getElementById('logoTopRange').value = 12;
+            document.getElementById('logoLeftRange').value = 12;
+            document.getElementById('logoOpacityRange').value = 100;
+            updateLogoCssOutput();
+        }
+
+        // High-Resolution Export
+        async function captureAndDownload() {
+            const overlay = document.querySelector('.ss-export-overlay');
+            if (overlay) overlay.classList.add('is-active');
+
+            try {
+                await TTExport.run({
+                    elementId: 'techtarangaPhotocard',
+                    filename: `PressStudio_Photocard_${currentTemplateId}_${Date.now()}`
+                });
+            } catch (err) {
+                console.error('Export error:', err);
+                alert('ডাউনলোড সম্পন্ন করতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
+            } finally {
+                if (overlay) overlay.classList.remove('is-active');
+            }
+        }
+
+        // On Page Load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserProfile();
+
+            const params = new URLSearchParams(window.location.search);
+            const tid = params.get('id') || '2823';
+            
+            renderTemplateGrid();
+            loadTemplate(tid);
+        });
+    </script>
+</body>
+</html>
