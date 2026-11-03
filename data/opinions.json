@@ -1,0 +1,258 @@
+[
+  {
+    "id": "38",
+    "title": "psop-2632",
+    "thumb": "https://pressstudio.com.bd/uploads/1791442938_6ac73ffabf986.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1791441455_6ac73a2f0b183.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 159px;\r\n\tright: -1px;\r\n\theight: 282px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 373px;\r\n\tleft: 39px;\r\n\tfont-weight: 600;\r\n\tfont-size: 7px;\r\n  \tz-index:10;\r\n  \tcolor:white;\r\n  \tborder:2px solid white;\r\n  \tpadding:5px 18px;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "37",
+    "title": "psop-2631",
+    "thumb": "https://pressstudio.com.bd/uploads/1791020080_6ac0cc3048f4e.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1791018559_6ac0c63f92271.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 173px;\r\n\tleft: -1px;\r\n\theight: 242px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 395px;\r\n\tright: 26px;\r\n\tfont-weight: 600;\r\n\tfont-size: 7px;\r\n  \tz-index:10;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "36",
+    "title": "psop-2630",
+    "thumb": "https://pressstudio.com.bd/uploads/1791011927_6ac0ac57943df.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1791010920_6ac0a868f2de8.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 161px;\r\n\tleft: -1px;\r\n\theight: 242px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 421px;\r\n\tright: 45px;\r\n\tfont-weight: 600;\r\n\tfont-size: 7px;\r\n  \tz-index:10;\r\n  \tcolor:white;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "35",
+    "title": "psop-2629",
+    "thumb": "https://pressstudio.com.bd/uploads/1790845435_6abe21fbbbe96.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1790844145_6abe1cf15107c.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 159px;\r\n\tright: -1px;\r\n\theight: 242px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 420px;\r\n\tright: 45px;\r\n\tfont-weight: 600;\r\n\tfont-size: 7px;\r\n  \tz-index:10;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "34",
+    "title": "psop-2628",
+    "thumb": "https://pressstudio.com.bd/uploads/1790838522_6abe06fa5ffd7.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1790839316_6abe0a1447f9c.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 159px;\r\n\tright: -1px;\r\n\theight: 242px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 425px;\r\n\tright: 45px;\r\n\tfont-weight: 600;\r\n\tfont-size: 7px;\r\n  \tz-index:10;\r\n  \tcolor:white;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "33",
+    "title": "psop-2627",
+    "thumb": "https://pressstudio.com.bd/uploads/1790751011_6abcb1233d5e0.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1790749877_6abcacb5cf3d1.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 229px;\r\n\tright: -1px;\r\n\theight: 302px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "32",
+    "title": "psop-2626",
+    "thumb": "https://pressstudio.com.bd/uploads/1790746591_6abc9fdf6bc22.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1790677761_6abb930105523.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 235px;\r\n\tright: -1px;\r\n\theight: 192px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 436px;\r\n\tright: 45px;\r\n\tfont-weight: 600;\r\n\tfont-size: 7px;\r\n  \tz-index:10;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "31",
+    "title": "psop-2625",
+    "thumb": "https://pressstudio.com.bd/uploads/1784974658_6a648d42a783d.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1784963758_6a6462aeeb39b.jpg",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 77px;\r\n\tleft: -5px;\r\n\theight: 305px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}\r\n#TECHTARANGA-FB{\r\n  \tcolor: white;\r\n    font-family: roboto;\r\n    font-size: 8px;\r\n    height: 25px;\r\n    line-height: 25px;\r\n    padding-left: 7px;\r\n    position: absolute;\r\n    top: 379px;\r\n    left: 0;\r\n    z-index: 2;\r\n}\r\n#TECHTARANGA-YOUTUBE{\r\n  \tcolor: white;\r\n    font-family: roboto;\r\n    font-size: 7px;\r\n    height: 25px;\r\n    line-height: 25px;\r\n    padding-left: 7px;\r\n    position: absolute;\r\n    top: 379px;\r\n    left: 145px;\r\n    z-index: 2;\r\n}\r\n#TechtarangaPcWeb {\r\n    color: white;\r\n    font-family: roboto;\r\n    font-size: 7px;\r\n    height: 25px;\r\n    line-height: 25px;\r\n    padding-left: 7px;\r\n    position: absolute;\r\n    top: 379px;\r\n    right: 5px;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "30",
+    "title": "psop-2624",
+    "thumb": "https://pressstudio.com.bd/uploads/1784532517_6a5dce2559e94.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1784530783_6a5dc75f21aa2.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 140px;\r\n\tright: -29px;\r\n\theight: 342px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n    position: absolute;\r\n    top: 267px;\r\n    right: 0;\r\n    height: 154px;\r\n    z-index: 2;\r\n    width: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 21px;\r\n\tright: 10px;\r\n\tfont-weight: 600;\r\n\tfont-size: 10px;\r\n  \tz-index:10;\r\n  \tcolor:white;\r\n}\r\n#TECHTARANGA-LOGO-ROUND{\r\n  \theight:39px; \r\n  \tposition:absolute;\r\n    top:8px;\r\n    left:50%;\r\n  \tz-index: 2;\r\n  \tborder-radius:50%;\r\n  \ttransform: translateX(-50%);\r\n  \r\n  \t\r\n}\r\n.techtaranga-date-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "29",
+    "title": "psop-2623",
+    "thumb": "https://pressstudio.com.bd/uploads/1784368332_6a5b4ccccbf83.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1784367887_6a5b4b0f9e4ae.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 247px;\r\n\tright: -17px;\r\n\theight: 302px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "28",
+    "title": "psop-2622",
+    "thumb": "https://pressstudio.com.bd/uploads/1784360037_6a5b2c65ec52e.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1784359093_6a5b28b5930ca.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 207px;\r\n\tleft: -5px;\r\n\theight: 322px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "27",
+    "title": "psop-2621",
+    "thumb": "https://pressstudio.com.bd/uploads/1784358101_6a5b24d5bc3b1.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1784356728_6a5b1f783d965.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 223px;\r\n\tleft: -5px;\r\n\theight: 302px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 424px;\r\n\tleft: 216px;\r\n\tfont-weight: 600;\r\n\tfont-size: 9px;\r\n  \tz-index:10;\r\n  \tcolor:white;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "26",
+    "title": "psop-2620",
+    "thumb": "https://pressstudio.com.bd/uploads/1784196709_6a58ae65b45c9.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1782714900_6a421214ca0e9.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 19px;\r\n\tright: 115px;\r\n\theight: 239px;\r\n\tz-index: 2;\r\n\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 1;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 349px;\r\n\tright: 10px;\r\n\tfont-weight: 600;\r\n\tfont-size: 7px;\r\n  \tz-index:10;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}\r\n.extraBG {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: 3;\r\n    width: 100%;\r\n}\r\n#TECHTARANGA-FB{\r\n    font-family: roboto;\r\n    font-size: 8px;\r\n    height: 25px;\r\n    line-height: 25px;\r\n    padding-left: 7px;\r\n    position: absolute;\r\n    top: 341px;\r\n    left: 7px;\r\n    z-index: 10;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "25",
+    "title": "psop-2619",
+    "thumb": "https://pressstudio.com.bd/uploads/1784193018_6a589ffaa4fba.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1782714900_6a421214ca0e9.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 48px;\r\n\tright: -18px;\r\n\theight: 309px;\r\n\tz-index: 2;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 1;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 344px;\r\n\tleft: 17px;\r\n\tfont-weight: 600;\r\n\tfont-size: 9px;\r\n  \tz-index:10;\r\n  \tcolor:white;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}\r\n.extraBG {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: 3;\r\n    width: 100%;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "24",
+    "title": "psop-2618",
+    "thumb": "https://pressstudio.com.bd/uploads/1784187937_6a588c211972a.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1784186887_6a58880755f89.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 267px;\r\n\tright: -17px;\r\n\theight: 242px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 394px;\r\n\tleft: 46px;\r\n\tfont-weight: 600;\r\n\tfont-size: 7px;\r\n  \tz-index:10;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "23",
+    "title": "psop-2617",
+    "thumb": "https://pressstudio.com.bd/uploads/1784110704_6a575e7018c2e.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1784108967_6a5757a7e294b.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop:203px;\r\n\tright: -11px;\r\n\theight: 242px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "22",
+    "title": "psop-2616",
+    "thumb": "https://pressstudio.com.bd/uploads/1784099184_6a5731709d81f.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1784097595_6a572b3ba34f1.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 220px;\r\n\tright: -19px;\r\n\theight: 342px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "21",
+    "title": "psop-2615",
+    "thumb": "https://pressstudio.com.bd/uploads/1784094916_6a5720c4a501f.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1784092927_6a5718ff107b2.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 169px;\r\n\tright: -7px;\r\n\theight: 172px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 346px;\r\n\tright: 21px;\r\n\tfont-weight: 600;\r\n\tfont-size: 7px;\r\n  \tz-index:10;\r\n  \tcolor:white;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "20",
+    "title": "psop-2614",
+    "thumb": "https://pressstudio.com.bd/uploads/1783490205_6a4de69dd46ce.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1783419048_6a4cd0a8c79d3.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 39px;\r\n\tright: 35px;\r\n\theight: 129px;\r\n\tz-index: 2;\r\n  \t\t\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition:relative;\r\n  \tz-index:1;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 399px;\r\n\tright: 3px;\r\n\tfont-weight: 600;\r\n\tfont-size: 6px;\r\n  \tcolor:white;\r\n  \tz-index:10;\r\n}\r\n#TECHTARANGA-FB{\r\n    font-family: roboto;\r\n    font-size: 7px;\r\n    height: 25px;\r\n    line-height: 25px;\r\n    padding-left: 7px;\r\n    position: absolute;\r\n    top: 391px;\r\n    left: 57px;\r\n    z-index: 10;\r\n  \tcolor:white;\r\n}\r\n#TECHTARANGA-youtube{\r\n    font-family: roboto;\r\n    font-size: 7px;\r\n    height: 25px;\r\n    line-height: 25px;\r\n    padding-left: 7px;\r\n    position: absolute;\r\n    top: 391px;\r\n   \tleft: 153px;\r\n    z-index: 10;\r\n  \tcolor:white;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}\r\n.extraBG {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: 3;\r\n    width: 100%;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "19",
+    "title": "psop-2613",
+    "thumb": "https://pressstudio.com.bd/uploads/1783334856_6a4b87c831317.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1783336433_6a4b8df16e182.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 233px;\r\n\tright: -17px;\r\n\theight: 192px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "18",
+    "title": "psop-2612",
+    "thumb": "https://pressstudio.com.bd/uploads/1783155030_6a48c9565ec85.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1783153243_6a48c25b28acb.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 267px;\r\n\tright: 7px;\r\n\theight: 242px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 431px;\r\n\tleft: 23px;\r\n\tfont-weight: 600;\r\n\tfont-size: 8px;\r\n  \tz-index:10;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "17",
+    "title": "psop-2611",
+    "thumb": "https://pressstudio.com.bd/uploads/1782987017_6a46390911bd2.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1782984807_6a4630678e539.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 83px;\r\n\tright: -37px;\r\n\theight: 342px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "16",
+    "title": "psop-2610",
+    "thumb": "https://pressstudio.com.bd/uploads/1782903661_6a44f36d6cb2b.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1782901750_6a44ebf687ecb.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 83px;\r\n\tleft: -37px;\r\n\theight: 342px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 105px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 429px;\r\n\tright: 13px;\r\n\tfont-weight: 600;\r\n\tfont-size: 8px;\r\n  \tz-index:10;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "15",
+    "title": "psop-2609",
+    "thumb": "https://pressstudio.com.bd/uploads/1782716763_6a42195b317e9.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1782714900_6a421214ca0e9.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 23px;\r\n\tright: -9px;\r\n\theight: 289px;\r\n\tz-index: 2;\r\n  \t\t\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition:relative;\r\n  \tz-index:1;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\twidth: 100%;\r\n}\r\n#TechtarangaPcWeb{\r\n  \tposition: absolute;\r\n\ttop: 333px;\r\n\tright: 20px;\r\n\tfont-weight: 600;\r\n\tfont-size: 8px;\r\n  \tcolor:white;\r\n  \tz-index:10;\r\n}\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}\r\n.extraBG {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: 3;\r\n    width: 100%;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "14",
+    "title": "psop-2608",
+    "thumb": "https://pressstudio.com.bd/uploads/1782713392_6a420c300fa7c.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1782370919_6a3cd2677b19a.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 83px;\r\n\tleft: -37px;\r\n\theight: 342px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "13",
+    "title": "psop-2607",
+    "thumb": "https://pressstudio.com.bd/uploads/1782897679_6a44dc0f2b9ad.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1782278979_6a3b6b433c1b1.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 83px;\r\n\tright: -37px;\r\n\theight: 342px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "12",
+    "title": "psop-2606",
+    "thumb": "https://pressstudio.com.bd/uploads/1782897523_6a44db738a218.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1782211020_6a3a61cc2f37d.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 83px;\r\n\tright: -37px;\r\n\theight: 342px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "11",
+    "title": "psop-2605",
+    "thumb": "https://pressstudio.com.bd/uploads/1782897132_6a44d9eca47cc.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1782121749_6a390515eb6ab.png",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 83px;\r\n\tright: -37px;\r\n\theight: 342px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "9",
+    "title": "psop-2604",
+    "thumb": "https://pressstudio.com.bd/uploads/1776331869_69e0ac5db9952.jpg",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1776331809_69e0ac2129f1f.jpg",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 100px;\r\n\tright: 10px;\r\n\theight: 342px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n    position: absolute;\r\n    top: 267px;\r\n    right: 0;\r\n    height: 154px;\r\n    z-index: 2;\r\n    width: 100%;\r\n}\r\n\r\n.techtaranga-date-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "8",
+    "title": "psop-2603",
+    "thumb": "https://pressstudio.com.bd/uploads/1775337155_69d17ec31435b.jpeg",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1775337184_69d17ee014a02.jpg",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 80px;\r\n\tleft: 0px;\r\n\theight: 342px;\r\n\tz-index: 3;\r\n} \r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "7",
+    "title": "psop-2602",
+    "thumb": "https://pressstudio.com.bd/uploads/1775335363_69d177c3a5e04.jpg",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1775335427_69d178034f785.jpg",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 83px;\r\n\tright: -37px;\r\n\theight: 342px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n\r\n.techtaranga-sbg-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  },
+  {
+    "id": "6",
+    "title": "psop-2601",
+    "thumb": "https://pressstudio.com.bd/uploads/1782896844_6a44d8cca781d.png",
+    "category": "opinion",
+    "bg": "https://pressstudio.com.bd/uploads/1775331178_69d1676a9b3ba.jpg",
+    "css": "#TechtarangaPcPhoto {\r\n\tposition: absolute;\r\n\ttop: 100px;\r\n\tright: 10px;\r\n\theight: 342px;\r\n\tz-index: 3;\r\n}\r\n#TechtarangaPcSecBg {\r\n\tposition: absolute;\r\n\ttop: 269px;\r\n\tright: 0;\r\n\theight: 99px;\r\n\tz-index: 2;\r\n\twidth: 100%;\r\n}\r\n\r\n.techtaranga-date-control, .techtaranga-qr-control{\r\ndisplay:none;\r\n}                \n        /* User CSS */"
+  }
+]

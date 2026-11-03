@@ -1,0 +1,645 @@
+/* ==========================================================
+   Studio Shell — shared responsive app layout for studio-*.php
+   Mobile (<992px): app bar / fitted canvas / bottom sheet / icon nav
+   Desktop (>=992px): app bar / canvas left / 420px tools panel right
+   ========================================================== */
+
+:root {
+    --ss-bg: #07263b;
+    --ss-surface: #0b3049;
+    --ss-surface-2: #0f3a58;
+    --ss-border: rgba(255, 255, 255, 0.08);
+    --ss-accent: #fb5518;
+    --ss-accent-2: #ff743c;
+    --ss-text: #ffffff;
+    --ss-muted: rgba(255, 255, 255, 0.6);
+    --ss-appbar-h: 56px;
+    --ss-nav-h: 60px;
+    --ss-panel-w: 420px;
+    --ss-sheet-h: 45dvh;
+    --ss-safe-top: env(safe-area-inset-top, 0px);
+    --ss-safe-bottom: env(safe-area-inset-bottom, 0px);
+    --ss-safe-left: env(safe-area-inset-left, 0px);
+    --ss-safe-right: env(safe-area-inset-right, 0px);
+}
+/* Android app WebView already pads around the system bars natively */
+html.in-wv {
+    --ss-safe-top: 0px;
+    --ss-safe-bottom: 0px;
+}
+
+/* dvh fallback for older browsers */
+@supports not (height: 1dvh) {
+    :root {
+        --ss-sheet-h: 45vh;
+    }
+}
+
+html:has(body.ss-studio),
+body.ss-studio {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+body.ss-studio {
+    margin: 0;
+    background: var(--ss-bg);
+    color: var(--ss-text);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* ---------- App shell ---------- */
+.ss-app {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-left: var(--ss-safe-left);
+    padding-right: var(--ss-safe-right);
+    background: var(--ss-bg);
+}
+
+/* ---------- App bar ---------- */
+.ss-appbar {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: calc(var(--ss-appbar-h) + var(--ss-safe-top));
+    padding: var(--ss-safe-top) 10px 0;
+    background: var(--ss-surface);
+    border-bottom: 1px solid var(--ss-border);
+    color: var(--ss-text);
+    z-index: 30;
+}
+
+.ss-icon-btn {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--ss-text);
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.ss-icon-btn:hover,
+.ss-icon-btn:focus-visible {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--ss-text);
+}
+
+.ss-title {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.2;
+}
+
+.ss-title strong {
+    display: block;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ss-title small {
+    display: block;
+    font-size: 11px;
+    color: var(--ss-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ss-download-btn {
+    flex: none;
+    height: 42px;
+    padding: 0 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--ss-accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 14px rgba(251, 85, 24, 0.35);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.ss-download-btn:hover {
+    background: var(--ss-accent-2);
+}
+
+.ss-download-btn:active {
+    transform: scale(0.97);
+}
+
+.ss-download-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* ---------- Main area ---------- */
+.ss-main {
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* ---------- Canvas stage ---------- */
+.ss-stage {
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(19, 123, 194, 0.12), transparent 65%),
+        var(--ss-bg);
+}
+
+.ss-canvas-frame {
+    position: relative;
+    flex: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+.ss-canvas-scaler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+}
+
+.ss-canvas-scaler > * {
+    margin: 0 !important;
+}
+
+/* The shell sets a white body text color for the dark UI; restore the
+   default text color for the design itself so unstyled canvas text
+   doesn't inherit it. */
+.ss-canvas-scaler > * {
+    color: #212529;
+}
+
+/* ---------- Tools panel / bottom sheet ---------- */
+.ss-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+    background: var(--ss-surface);
+    color: var(--ss-text);
+    z-index: 20;
+}
+
+.ss-panel .font-control {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+}
+
+.ss-panel .pc-studio-tabs-nav {
+    flex: none;
+}
+
+.ss-panel .pc-tabs-content {
+    flex: 1;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0;
+    padding: 16px 16px 24px;
+}
+
+.ss-copyright {
+    margin-top: 24px;
+    padding-top: 14px;
+    border-top: 1px solid var(--ss-border);
+    text-align: center;
+    font-size: 12px;
+    color: #137bc2;
+}
+
+.ss-copyright a {
+    color: var(--ss-accent);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.ss-sheet-handle {
+    display: none;
+}
+
+/* ---------- Bottom nav ---------- */
+.ss-bottom-nav {
+    display: none;
+    flex: none;
+    gap: 2px;
+    padding: 4px 6px var(--ss-safe-bottom);
+    background: var(--ss-surface);
+    border-top: 1px solid var(--ss-border);
+    z-index: 30;
+}
+
+.ss-nav-btn {
+    flex: 1;
+    min-width: 0;
+    height: var(--ss-nav-h);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: 0;
+    border-radius: 12px;
+    background: none;
+    color: var(--ss-muted);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.ss-nav-btn i {
+    font-size: 20px;
+    line-height: 1;
+    width: 52px;
+    padding: 4px 0;
+    border-radius: 999px;
+    transition: background 0.2s;
+}
+
+.ss-nav-btn span {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ss-nav-btn.active {
+    color: var(--ss-accent);
+}
+
+.ss-nav-btn.active i {
+    background: rgba(251, 85, 24, 0.15);
+}
+
+.ss-sheet-closed .ss-nav-btn.active {
+    color: var(--ss-muted);
+}
+
+.ss-sheet-closed .ss-nav-btn.active i {
+    background: none;
+}
+
+/* ---------- Export overlay ---------- */
+.ss-export-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10050;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: rgba(7, 38, 59, 0.88);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.ss-exporting .ss-export-overlay {
+    display: flex;
+}
+
+.ss-spinner {
+    width: 46px;
+    height: 46px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top-color: var(--ss-accent);
+    border-radius: 50%;
+    animation: ss-spin 0.8s linear infinite;
+}
+
+@keyframes ss-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==========================================================
+   Mobile (< 992px)
+   ========================================================== */
+@media (max-width: 991.98px) {
+    .ss-panel {
+        flex: none;
+        height: var(--ss-sheet-h);
+        border-radius: 18px 18px 0 0;
+        box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.35);
+        transition: height 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .ss-sheet-closed .ss-panel {
+        height: 0;
+        box-shadow: none;
+    }
+
+    .ss-panel .pc-studio-tabs-nav {
+        display: none;
+    }
+
+    .ss-sheet-handle {
+        flex: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 26px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .ss-sheet-handle::before {
+        content: "";
+        width: 42px;
+        height: 5px;
+        border-radius: 3px;
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .ss-panel .pc-tabs-content {
+        padding-top: 4px;
+    }
+
+    .ss-copyright {
+        display: none;
+    }
+
+    .ss-bottom-nav {
+        display: flex;
+    }
+
+    .ss-stage {
+        padding: 12px;
+    }
+
+    /* --- Touch-friendly controls --- */
+    .ss-panel .form-control,
+    .ss-panel .form-select,
+    .modal .form-control,
+    .tt-logo-customizer-toolbar .form-control {
+        font-size: 16px !important; /* 16px stops iOS zooming on focus */
+        min-height: 36px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    .ss-panel textarea.form-control {
+        min-height: 60px;
+    }
+
+    .ss-panel .btn,
+    .ss-panel .input-group-text {
+        min-height: 36px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        font-size: 14px;
+    }
+
+    .modal .btn {
+        min-height: 44px;
+    }
+
+    .ss-panel .mb-3 {
+        margin-bottom: 0.6rem !important;
+    }
+
+    .ss-panel .input-group {
+        flex-wrap: nowrap;
+    }
+
+    .ss-panel .input-group-text {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 14px;
+    }
+
+    .ss-panel .input-group > .form-control {
+        min-width: 0;
+    }
+
+    .ss-panel .form-check-input[role="switch"] {
+        width: 44px !important;
+        height: 24px !important;
+    }
+
+    .ss-panel .control-label-white {
+        font-size: 14px;
+    }
+
+    .pc-color-swatch {
+        width: 32px;
+        height: 32px;
+    }
+
+    .pc-color-presets-container {
+        gap: 8px;
+    }
+
+    .pc_bg_item {
+        flex-basis: 52px;
+        height: 52px;
+    }
+
+    .tt-logo-customizer-toolbar {
+        padding-bottom: var(--ss-safe-bottom);
+    }
+
+    .tt-btn-auto {
+        min-height: 32px;
+        padding: 4px 12px;
+        font-size: 12px;
+    }
+}
+
+/* --- Narrow phones: keep the page name readable --- */
+@media (max-width: 419.98px) {
+    .ss-appbar {
+        gap: 2px;
+        padding-left: 4px;
+        padding-right: 8px;
+    }
+
+    .ss-title strong {
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+
+    .ss-download-btn {
+        padding: 0 12px;
+        gap: 6px;
+        font-size: 13px;
+    }
+}
+
+/* --- Large slider thumbs for fingers --- */
+@media (max-width: 991.98px), (pointer: coarse) {
+    body.ss-studio .form-range,
+    body.ss-studio .tt-logo-toolbar-body input[type="range"] {
+        height: 32px !important;
+        background: transparent;
+    }
+
+    body.ss-studio .form-range::-webkit-slider-runnable-track {
+        height: 6px;
+        border-radius: 3px;
+        background: rgba(255, 255, 255, 0.18);
+    }
+
+    body.ss-studio .form-range::-moz-range-track {
+        height: 6px;
+        border-radius: 3px;
+        background: rgba(255, 255, 255, 0.18);
+    }
+
+    body.ss-studio .form-range::-webkit-slider-thumb,
+    body.ss-studio .tt-logo-toolbar-body input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 26px;
+        height: 26px;
+        margin-top: -10px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        background: var(--ss-accent);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    }
+
+    body.ss-studio .form-range::-moz-range-thumb,
+    body.ss-studio .tt-logo-toolbar-body input[type="range"]::-moz-range-thumb {
+        width: 22px;
+        height: 22px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        background: var(--ss-accent);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    }
+
+    body.ss-studio .tt-logo-toolbar-body input[type="range"]::-webkit-slider-runnable-track {
+        height: 6px;
+        border-radius: 3px;
+        background: #334155;
+    }
+
+    body.ss-studio .tt-logo-toolbar-body input[type="range"]:disabled::-webkit-slider-thumb {
+        background: #64748b;
+    }
+}
+
+/* --- Big modals (crop / preview) go full screen on phones --- */
+@media (max-width: 575.98px) {
+    .modal-fullscreen-sm-down .modal-content {
+        border-radius: 0 !important;
+        border: 0 !important;
+    }
+
+    .modal-fullscreen-sm-down .modal-header {
+        padding: calc(14px + var(--ss-safe-top)) 16px 14px !important;
+    }
+
+    .modal-fullscreen-sm-down .modal-body {
+        padding: 16px !important;
+    }
+
+    .modal-fullscreen-sm-down .modal-footer {
+        flex-wrap: nowrap;
+        gap: 8px;
+        padding: 12px 16px calc(12px + var(--ss-safe-bottom)) !important;
+    }
+
+    .modal-fullscreen-sm-down .modal-footer > .btn {
+        flex: 1;
+        margin: 0;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        font-size: 14px;
+    }
+
+    .modal-fullscreen-sm-down .img-container {
+        max-height: 55dvh !important;
+    }
+}
+
+/* ==========================================================
+   Desktop (>= 992px)
+   ========================================================== */
+@media (min-width: 992px) {
+    .ss-main {
+        flex-direction: row;
+    }
+
+    .ss-stage {
+        padding: 32px;
+    }
+
+    .ss-panel {
+        flex: none;
+        width: var(--ss-panel-w);
+        border-left: 1px solid var(--ss-border);
+    }
+
+    .ss-appbar {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+/* --- Crop modal: keep touches inside the cropper (no page scroll / pull-to-refresh while dragging) --- */
+#cropperModal {
+    overscroll-behavior: contain;
+}
+
+#cropperModal .cropper-container,
+#cropperModal .img-container {
+    touch-action: none;
+}
+
+@media (max-width: 575.98px) {
+    /* Fit the photo into the visible screen so the cropper never needs the modal to scroll */
+    #cropperModal .img-container {
+        max-height: calc(100vh - 240px) !important;
+        max-height: calc(100dvh - 240px) !important;
+    }
+}

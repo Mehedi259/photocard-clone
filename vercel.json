@@ -1,0 +1,25 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/login", "destination": "/login.html" },
+    { "source": "/register", "destination": "/register.html" },
+    { "source": "/forgot-password", "destination": "/forgot-password.html" },
+    { "source": "/logout", "destination": "/login.html" },
+    { "source": "/account", "destination": "/account/index.html" },
+    { "source": "/account/brand-info", "destination": "/account/brand-info.html" },
+    { "source": "/account/template/photocard", "destination": "/account/template/photocard.html" },
+    { "source": "/account/template/opinion", "destination": "/account/template/opinion.html" },
+    { "source": "/account/template/thumbnail", "destination": "/account/template/thumbnail.html" },
+    { "source": "/account/template/videoframe", "destination": "/account/template/videoframe.html" },
+    { "source": "/account/packages", "destination": "/account/packages.html" },
+    { "source": "/account/info", "destination": "/account/info.html" },
+    { "source": "/account/security", "destination": "/account/security.html" },
+    { "source": "/account/news-rewrite", "destination": "/account/news-rewrite.html" },
+    { "source": "/account/video-editor", "destination": "/account/video-editor.html" },
+    { "source": "/account/voice-over", "destination": "/account/voice-over.html" },
+    { "source": "/create/photocard/:id", "destination": "/create/photocard.html?id=:id" },
+    { "source": "/create/photocard", "destination": "/create/photocard.html" },
+    { "source": "/create/thumbnail/:id", "destination": "/create/photocard.html?type=thumbnail&id=:id" },
+    { "source": "/create/opinion/:id", "destination": "/create/photocard.html?type=opinion&id=:id" }
+  ]
+}

@@ -1,0 +1,747 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@100..900&display=swap');
+
+body {
+    background: #07263b;
+    font-family: "Noto Serif Bengali", sans-serif;
+}
+
+.font-control {
+    background-color: #0b3049;
+}
+
+#techtarangaPhotocard {
+    width: 360px;
+    min-height: 360px;
+    font-family: "Noto Serif Bengali", serif;
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+}
+
+/* Modern Modal Styles (Image-inspired) */
+.modal-content {
+    font-family: "Noto Serif Bengali", serif;
+    border: none;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    color: #1a1a1a;
+}
+
+.modal-header,
+.modal-footer {
+    border: none;
+    padding: 0;
+}
+
+.modal-title {
+    font-weight: 800;
+    font-size: 24px;
+    color: #1a1a1a;
+}
+
+.modal-body p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Status Icons */
+.status-icon-box {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f8f9fa;
+}
+
+.status-icon-box.success {
+    background: #e6fcf5;
+    color: #0ca678;
+}
+
+.status-icon-box.error {
+    background: #fff5f5;
+    color: #fa5252;
+}
+
+.status-icon-box.loading {
+    background: #e7f5ff;
+    color: #228be6;
+}
+
+.status-icon-box i {
+    font-size: 60px;
+}
+
+/* Animation for creation */
+.floating-ani {
+    animation: floating 2s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Modern Buttons */
+.btn-modern-primary {
+    background: #0866ff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-modern-primary:hover {
+    background: #0652d1;
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.btn-modern-outline {
+    background: #fff;
+    color: #444;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-modern-outline:hover {
+    background: #f8f9fa;
+    color: #1a1a1a;
+}
+
+.ad-grid-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    min-height: 90px;
+    align-items: center;
+    padding: 6px 2px 14px;
+    scrollbar-width: thin;
+    scrollbar-color: #0866ff #0b3049;
+}
+
+.ad-grid-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.ad-grid-container::-webkit-scrollbar-thumb {
+    background: #137bc2;
+    border-radius: 10px;
+}
+
+.ad-item {
+    flex: 0 0 110px;
+    width: 110px;
+    height: 65px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    background: #07263b;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ad-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    opacity: 0.75;
+    transition: 0.3s;
+    max-width: none !important;
+}
+
+.ad-item:hover img {
+    opacity: 1;
+}
+
+.ad-item.active {
+    border-color: #0866ff;
+    box-shadow: 0 0 14px rgba(8, 102, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+.ad-item.active img {
+    opacity: 1;
+}
+
+.ad-item.hide-btn {
+    background: #0b3049;
+    color: #fff;
+    font-size: 11px;
+    flex-direction: column;
+    text-align: center;
+    border-style: dashed;
+    opacity: 0.85;
+}
+
+.ad-item.hide-btn:hover {
+    opacity: 1;
+    border-color: #fa5252;
+}
+
+.ad-item.hide-btn.active {
+    border-color: #fa5252;
+    box-shadow: 0 0 12px rgba(250, 82, 82, 0.4);
+    opacity: 1;
+}
+
+.ad-item.hide-btn i {
+    font-size: 22px;
+    margin-bottom: 2px;
+    color: #fa5252;
+}
+
+.ad-item:not(.hide-btn).active::after {
+    content: "\F26A";
+    font-family: "bootstrap-icons";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #0866ff;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid #07263b;
+    z-index: 2;
+}
+
+.ad-item.upload-btn {
+    background: #07263b;
+    color: #aaa;
+    font-size: 10px;
+    flex-direction: column;
+    text-align: center;
+    border-style: dashed;
+    border-color: rgba(255, 255, 255, 0.2);
+    opacity: 0.85;
+}
+
+.ad-item.upload-btn:hover {
+    opacity: 1;
+    border-color: #fa5252;
+    color: #fa5252;
+}
+
+.ad-item.upload-btn.active {
+    border-color: #fa5252;
+    box-shadow: 0 0 12px rgba(221, 152, 15, 0.4);
+    opacity: 1;
+    color: #fa5252;
+}
+
+.ad-item.upload-btn i {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+.custom-ad-upload-box {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.custom-ad-upload-box label {
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.2s;
+}
+
+
+.custom-ad-preview {
+    width: 80px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: none;
+}
+
+.custom-ad-hint {
+    font-size: 11px;
+    color: #aaa;
+    flex: 1;
+}
+
+/* Photocard template switcher */
+.techtaranga_photocard_all {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 8px 2px 14px;
+    scrollbar-width: thin;
+    scrollbar-color: #137bc2 #0b3049;
+}
+
+.techtaranga_photocard_all::-webkit-scrollbar {
+    height: 6px;
+}
+
+.techtaranga_photocard_all::-webkit-scrollbar-thumb {
+    background: #137bc2;
+    border-radius: 10px;
+}
+
+.pc-thumb-item {
+    flex: 0 0 100px;
+    width: 100px;
+    display: block;
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.pc-thumb-item img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    max-width: none !important;
+    display: block;
+    opacity: 0.75;
+    transition: 0.3s;
+}
+
+.pc-thumb-item:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.pc-thumb-item:hover img {
+    opacity: 1;
+}
+
+.pc-thumb-item.pc-active {
+    border-color: #ffc107;
+    box-shadow: 0 0 14px rgba(255, 193, 7, 0.45);
+    transform: translateY(-3px);
+}
+
+.pc-thumb-item.pc-active img {
+    opacity: 1;
+}
+
+.btn-customize-details {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 12px;
+    padding: 12px 0;
+    font-weight: 600;
+    font-size: 0.95rem;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.2s;
+    margin-bottom: 15px;
+}
+
+.btn-customize-details:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-customize-details i {
+    color: #fa5252;
+}
+
+/* â”€â”€ Premium Customize Details Modal Styling â”€â”€ */
+#staticBackdrop .modal-content {
+    background: rgba(11, 48, 73, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+#staticBackdrop .modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 24px 28px;
+}
+
+#staticBackdrop .modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 24px 28px;
+}
+
+#staticBackdrop .form-label {
+    color: #8cb8d4;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+#staticBackdrop .form-control,
+#staticBackdrop .form-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 12px;
+    padding: 12px 16px;
+    transition: all 0.2s;
+}
+
+#staticBackdrop .form-control:focus,
+#staticBackdrop .form-select:focus {
+    border-color: #fa5252;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(221, 152, 15, 0.1);
+    outline: none;
+}
+
+#staticBackdrop select option {
+    background: #0b3049;
+    color: #fff;
+}
+
+#staticBackdrop .btn-primary {
+    background: linear-gradient(135deg, #137bc2, #0866ff);
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    padding: 10px 24px;
+}
+
+#staticBackdrop .btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 12px;
+}
+
+/* Modern Photo Upload Component */
+.pc-photo-upload-container {
+    position: relative;
+    width: 100%;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+}
+
+.pc-photo-upload-container:hover {
+    border-color: #fa5252;
+    background: rgba(221, 152, 15, 0.05);
+}
+
+.pc-photo-u.pc-tab-link.active {
+    color: #fff;
+    border-bottom: 2px solid #fb5518;
+    background: rgba(251, 85, 24, 0.1);
+}
+
+.pc-color-swatch {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease, border-color 0.2s;
+}
+
+.pc-color-presets-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 8px 4px;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.pc-color-presets-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.pc-color-swatch:hover {
+    transform: scale(1.15);
+    border-color: #fff;
+}
+
+.pc-photo-upload-container label {
+    cursor: pointer;
+    margin: 0;
+    display: block;
+}
+
+.pc-photo-upload-container i {
+    font-size: 2rem;
+    color: #fa5252;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.pc-photo-upload-container span {
+    display: block;
+    font-size: 0.9rem;
+    color: #8cb8d4;
+}
+
+.pc-photo-preview {
+    max-width: 100%;
+    max-height: 150px;
+    border-radius: 10px;
+    margin-top: 15px;
+    display: none;
+    object-fit: contain;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Templates List Styles */
+.techtaranga_photocard_all {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 8px 4px 15px 4px;
+    scrollbar-width: thin;
+    scrollbar-color: #fb551833 transparent;
+}
+
+.techtaranga_photocard_all::-webkit-scrollbar {
+    height: 4px;
+}
+
+.techtaranga_photocard_all::-webkit-scrollbar-thumb {
+    background: #fb551833;
+    border-radius: 10px;
+}
+
+.pc_template_item {
+    flex: 0 0 100px;
+    background: #0b3049;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.pc_template_item:hover {
+    transform: translateY(-3px);
+    border-color: #fb551888;
+}
+
+.pc_template_item.active {
+    border-color: #fb5518;
+    box-shadow: 0 4px 12px rgba(221, 152, 15, 0.3);
+}
+
+.pc_template_thumb {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+}
+
+.pc_template_title {
+    font-size: 10px;
+    color: #fff;
+    text-align: center;
+    padding: 5px 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* BG Variant Styles */
+.pc_bg_variants {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 5px 2px 10px 2px;
+    scrollbar-width: none;
+}
+
+.pc_bg_variants::-webkit-scrollbar {
+    display: none;
+}
+
+.pc_bg_item {
+    flex: 0 0 60px;
+    height: 60px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.pc_bg_item.active {
+    border-color: #fb5518;
+    transform: scale(1.05);
+}
+
+.pc_bg_item.active::before {
+    content: "\F272";
+    font-family: "bootstrap-icons";
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #fb5518;
+    color: #fff;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tabbed Interface Styles */
+.pc-studio-tabs-nav {
+    display: flex;
+    background: rgba(11, 48, 73, 0.8);
+    border-bottom: 2px solid #fb5518;
+    overflow-x: auto;
+    scrollbar-width: none;
+    justify-content: space-between;
+}
+
+.pc-studio-tabs-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.pc-tab-link {
+    padding: 10px 18px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s;
+    opacity: 0.6;
+}
+
+.pc-tab-link:hover {
+    background: rgba(221, 152, 15, 0.1);
+    opacity: 1;
+}
+
+.pc-tab-link.active {
+    background: #fb5518;
+    color: #fff;
+    opacity: 1;
+}
+
+.pc-tabs-content {
+    background: #0b3049;
+    border-radius: 0 0 12px 12px;
+    padding: 20px;
+    min-height: 200px;
+}
+
+.pc-tab-pane {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.pc-tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.control-label-white {
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.tab-section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #fb5518;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* Input overrides for tab usage */
+.pc-tab-pane .form-control,
+.pc-tab-pane .form-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 14px;
+}
+
+.pc-tab-pane .form-control:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fb5518;
+    box-shadow: none;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="no-js" lang="bn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Create Account :: Press Studio</title>
+    <link href="/assets/img/favicon.png" rel="icon">
+    <meta name="theme-color" content="#00194c">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/account.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Serif+Bengali:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="tt-auth">
+    <header class="techtaranga_header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-4 col-lg-3">
+                    <a href="/"><img class="techtaranga-logo" src="/assets/img/logo.png" alt="Press Studio"></a>
+                </div>
+                <div class="col-4 col-lg-6 d-none d-lg-block">
+                    <ul class="nav-menu justify-content-center"> 
+                        <li><a href="/#home" class="nav-link">হোম</a></li>   
+                        <li><a href="/#features" class="nav-link">ফিচার্স</a></li>
+                        <li><a href="/#pricing" class="nav-link">প্রাইসিং</a></li> 
+                    </ul>
+                </div>
+                <div class="col-8 col-lg-3 text-end">
+                    <div class="header-action-btns d-none d-lg-flex align-items-center justify-content-end gap-3">
+                        <a href="/login.html" class="nav-auth-link">লগইন</a>
+                        <a class="techtaranga-button" href="/register.html">অর্ডার করুণ</a>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </header>
+
+    <section class="profile-main-wrapper py-5 min-vh-100 d-flex align-items-center techtaranga_auth_form">
+        <div class="container container-login py-5" style="margin-top: 60px;">
+            <div class="row justify-content-center">
+                <div class="col-md-7 col-lg-5">
+                    <div class="techtaranga_login_form card border-0 shadow-lg rounded-4 overflow-hidden glass-login-card"> 
+                        <div class="card-body p-4 p-md-5">
+                            <div class="text-center mb-4">
+                                <h2 class="fw-bold mb-1" style="color: var(--tt_primary_color);">প্রেস স্টুডিওতে স্বাগতম</h2>
+                                <p class="text-muted">ফ্রি একাউন্ট তৈরি করে উপভোগ করুন প্রিমিয়াম সব ফিচার্স</p>
+                            </div>
+                            
+                            <div id="registerAlert"></div>
+
+                            <form id="registerForm">
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold">পূর্ণ নাম</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0 rounded-start-3"><i class="fas fa-user-circle text-muted"></i></span>
+                                        <input type="text" id="regName" class="form-control bg-light border-start-0 py-2 rounded-end-3" placeholder="Sheikh Nesarul Islam" required>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold">ইমেইল এড্রেস</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0 rounded-start-3"><i class="fas fa-envelope text-muted"></i></span>
+                                        <input type="email" id="regEmail" class="form-control bg-light border-start-0 py-2 rounded-end-3" placeholder="name@example.com" required>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold">মোবাইল নাম্বার (বাংলাদেশী)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0 rounded-start-3"><i class="fas fa-phone-alt text-muted"></i></span>
+                                        <input type="text" id="regMobile" class="form-control bg-light border-start-0 py-2 rounded-end-3" placeholder="017XXXXXXXX" maxlength="11" required>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold">পত্রিকা/পেইজের নাম</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0 rounded-start-3"><i class="fas fa-building text-muted"></i></span>
+                                        <input type="text" id="regOrg" class="form-control bg-light border-start-0 py-2 rounded-end-3" placeholder="eg. Hello Probash">
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-semibold">পাসওয়ার্ড</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0 rounded-start-3"><i class="fas fa-lock text-muted"></i></span>
+                                        <input type="password" id="regPass" class="form-control bg-light border-start-0 py-2 rounded-end-3" placeholder="কমপক্ষে ৬ ক্যারেক্টার" required>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="techtaranga-button w-100 border-0 py-3 shadow-sm">
+                                    নিবন্ধন করুন <i class="fas fa-arrow-right ms-2"></i>
+                                </button>
+                            </form>
+
+                            <div class="text-center mt-4 pt-2">
+                                <p class="mb-0 text-muted">নিবন্ধন করেছেন ? <a href="/login.html" class="text-decoration-none fw-bold" style="color: #ee0979;">লগইন করুন</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="techtaranga_footer">
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <p class="mb-0 text-white-50">© 2026 Press Studio | A Brand of Tech Taranga</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var name = document.getElementById('regName').value.trim();
+            var email = document.getElementById('regEmail').value.trim();
+            var mobile = document.getElementById('regMobile').value.trim();
+            var org = document.getElementById('regOrg').value.trim() || name;
+
+            var profile = {
+                name: name,
+                brand_name: org,
+                email: email,
+                mobile: mobile,
+                website: 'WWW.' + org.replace(/\s+/g, '').toUpperCase() + '.COM',
+                fb: org,
+                youtube: org,
+                logo: '/assets/img/default-logo.png',
+                plan: 'Premium (Free Trial)',
+                days_left: 30,
+                total_downloads: 0,
+                month_downloads: 0,
+                favorites: []
+            };
+
+            localStorage.setItem('ps_user', JSON.stringify(profile));
+            
+            document.getElementById('registerAlert').innerHTML = '<div class="alert alert-success border-0 rounded-3 shadow-sm"><i class="fas fa-check-circle me-2"></i> নিবন্ধন সফল হয়েছে! স্বাগতম প্রেস স্টুডিওতে...</div>';
+            setTimeout(function() {
+                window.location.href = '/account/index.html';
+            }, 800);
+        });
+    </script>
+</body>
+</html>
